@@ -9,6 +9,9 @@
 
 namespace Paystack\GiveWP;
 
+use Paystack\GiveWP\Admin as Admin;
+use Paystack\GiveWP\Includes as Includes;
+
 // Bailout, if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -50,10 +53,15 @@ final class Plugin {
 	 * @return void
 	 */
 	public function register_services() {
-		// Load Admin Files.
-		
+        if ( is_admin() ) {
+            // Load Admin Files.
+            new Admin\Actions();
+            new Admin\Filters();
+        }
+
 		// Load Frontend Files.
-		
+        new Includes\Actions();
+        new Includes\Filters();
 	}
 
 	/**
