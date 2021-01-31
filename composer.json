@@ -1,0 +1,37 @@
+{
+    "name": "paystackhq/plugin-give",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "description": "Paystack for Give - Accept donations via Paystack",
+    "homepage": "https://paystack.com/",
+    "require": {
+        "composer/installers": "~1.2"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "wp-coding-standards/wpcs": "*",
+        "phpunit/phpunit": "^5"
+    },
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "donations"
+    ],
+    "support": {
+        "issues": "https://github.com/PaystackHQ/plugin-give/issues"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    },
+    "autoload": {
+        "psr-4": {
+            "Paystack\\GiveWP\\": "src/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.6.40"
+        }
+    }
+}
