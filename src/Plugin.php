@@ -66,7 +66,7 @@ final class Plugin {
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain(
-			'perform',
+			'paystack-give',
 			false,
 			dirname( plugin_basename( PAYSTACK_FOR_GIVE_PLUGIN_FILE ) ) . '/languages/'
 		);
