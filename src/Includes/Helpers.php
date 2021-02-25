@@ -52,4 +52,16 @@ class Helpers {
         
         return $key;
     }
+
+    /**
+     * Get Endpoint URL.
+     * 
+     * @since  1.0.0
+     * @access public
+     *
+     * @return string
+     */
+    public static function get_endpoint_url() {
+        return 'https://api.paystack.co';
+    }
 }
