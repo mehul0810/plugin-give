@@ -26,6 +26,7 @@ class Filters {
     public function __construct() {
         add_filter( 'give_get_sections_gateways', [ $this, 'register_sections' ] );
         add_filter( 'give_get_settings_gateways', [ $this, 'register_settings' ] );
+        add_filter( 'plugin_action_links_' . PAYSTACK_FOR_GIVE_PLUGIN_BASENAME, [ $this, 'add_plugin_links' ] );
     }
 
     /**
@@ -116,7 +117,29 @@ class Filters {
                 ];
                 break;
         }
-        
+
         return $settings;
     }
+
+    /**
+	 * This function is used to add settings page link on plugins page.
+	 *
+	 * @param array $links List of links on plugin page.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 *
+	 * @return array
+	 */
+	public function add_plugin_links( $links ) {
+		$links['settings'] = sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url_raw( admin_url( 'edit.php?post_type=give_forms&page=give-settings&tab=gateways&section=paystack' ) ),
+			esc_html__( 'Settings', 'paystack-give' )
+		);
+
+		asort( $links );
+
+		return $links;
+	}
 }
