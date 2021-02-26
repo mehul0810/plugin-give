@@ -81,4 +81,25 @@ class Helpers {
             'Cache-Control' => 'no-cache',
         ];
     }
+
+    /**
+     * Get Supported Channels.
+     * 
+     * @since  1.0.0
+     * @access public
+     *
+     * @return array
+     */
+    public static function get_supported_channels() {
+        $channels = [
+            'card',
+            'bank',
+            'ussd',
+            'qr',
+            'mobile_money',
+            'bank_transfer',
+        ];
+
+        return apply_filters( 'paystack_for_give_supported_channels', $channels );
+    }
 }
