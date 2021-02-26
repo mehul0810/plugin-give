@@ -64,4 +64,21 @@ class Helpers {
     public static function get_endpoint_url() {
         return 'https://api.paystack.co';
     }
+
+    /**
+     * Get Request Headers.
+     * 
+     * @since  1.0.0
+     * @access public
+     *
+     * @return array
+     */
+    public static function get_request_headers() {
+        $secret_key = self::get_secret_key();
+
+        return [
+            'Authorization' => "Bearer {$secret_key}",
+            'Cache-Control' => 'no-cache',
+        ];
+    }
 }
